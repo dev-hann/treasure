@@ -1,5 +1,5 @@
 class DungeonMap {
-  DungeonMap({required this.tileList});
+  const DungeonMap({this.tileList = const []});
   final List<List<String>> tileList;
 
   int get width => tileList.first.length;

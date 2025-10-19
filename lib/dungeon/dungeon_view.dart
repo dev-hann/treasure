@@ -2,12 +2,16 @@ import 'package:radartui/radartui.dart';
 import 'package:treasure/dungeon/inventory/inventory_view.dart';
 import 'package:treasure/dungeon/map/dungeon_map_view.dart';
 import 'package:treasure/dungeon/status/status_view.dart';
-import 'package:treasure/model/dungeon_map.dart';
 import 'package:treasure/model/hero/hero.dart';
 import 'package:treasure/model/hero/hero_status.dart';
 
-class DungeonView extends StatelessWidget {
-  final Hero hero = Hero(
+class DungeonView extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() => _DungeonViewState();
+}
+
+class _DungeonViewState extends State<DungeonView> {
+  final hero = Hero(
     name: '',
     heroStatus: HeroStatus(
       hp: 10,
@@ -23,21 +27,13 @@ class DungeonView extends StatelessWidget {
       gold: 0,
     ),
   );
+
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
         DungeonMapView(
           viewport: Size(100, 40),
-          dungeonMap: DungeonMap(
-            tileList: [
-              ['#', '#', '#', '#', '#'],
-              ['#', '.', '.', '.', '#'],
-              ['#', '.', '@', '.', '#'],
-              ['#', '.', '.', '.', '#'],
-              ['#', '#', '#', '#', '#'],
-            ],
-          ),
         ),
         Column(
           children: [
