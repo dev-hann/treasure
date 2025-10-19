@@ -20,7 +20,6 @@ class _DungeonMapViewState extends State<DungeonMapView> {
     super.initState();
     _bloc = DungeonMapBloc();
     _focusNode = FocusNode();
-
     _bloc.add(
       InitializeMap(
         viewportWidth: widget.viewport.width.toInt(),
@@ -29,7 +28,9 @@ class _DungeonMapViewState extends State<DungeonMapView> {
     );
 
     // Focus 요청을 다음 프레임에서 수행
-    Future.microtask(() => _focusNode.requestFocus());
+    Future.microtask(() {
+      _focusNode.requestFocus();
+    });
   }
 
   @override
